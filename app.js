@@ -1,51 +1,29 @@
 
-const container = document.querySelector("#container")
-
-const grid = document.createElement("div")
-grid.setAttribute("class", "square")
-grid.setAttribute("style", "background-Color: red; height: 20px; width: 20px; border: 2px solid black; ")
+const container = document.querySelector("#container");
 
 
-//container.appendChild(grid)
+// number of grid (Grid Size)
+const girdSize = 16;   // later we will take user input to set the value.
 
-function divCreator(num){
 
-    let i = 0
-    while(i <num){
-        let myDiv 
-        myDiv = document.createElement("div")
-        myDiv.setAttribute("class", "square")
-        myDiv.setAttribute("style", " height: 20px; width: 20px; border: 2px solid black; ")
-        container.appendChild(myDiv)
-        
-        i++
-    }
+const containerSize = 500;
 
-    /*
-    for(let i = 0; i < num; i++){
-        num = document.createElement("div")
-        num.setAttribute("class", "square")
-        num.setAttribute("style", "background-Color: green; height: 20px; width: 20px; border: 2px solid black; ")
-        container.appendChild(num)
+// set the size of the square divs 
+const squareSize = containerSize / girdSize; // they should have equal height and width
 
-        
-    }
-    */
+for(let i = 0; i < girdSize * girdSize; i++){
+    const squareDivs = document.createElement("div");
+    squareDivs.setAttribute("class", "square");
+
+
+    // Set the size of the square divs dynamically 
+    squareDivs.style.width = `${squareSize}`
+    squareDivs.style.height = `${squareSize}`
+    
+
+    // Add the square divs into the container 
+    container.appendChild(squareDivs)
 }
-
-divCreator(256)
-
-/*
-const grid1 = document.createElement("div")
-grid1.setAttribute("class", "square")
-grid1.setAttribute("style", "background-color: green; height: 20px; width: 20px; border: 2px solid black; ")
-
-
-const grid2 = document.createElement("div")
-grid2.setAttribute("class", "square")
-grid2.setAttribute("style", "background-color: blue; height: 20px; width: 20px; border: 2px solid black; ")
-*/
-
 
 
 
