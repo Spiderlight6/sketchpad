@@ -17,8 +17,26 @@ function createGrid(squaresPerSide) {
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
 
+
+        // Add an event listener to change the color on hover
+        square.addEventListener('mouseover', () => {
+            const randomColor = generateRandomColor();
+            square.style.backgroundColor = randomColor;
+        });
+
+
         container.appendChild(square);
     }
+
+}
+
+
+// Function to generate random RGB color
+function generateRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 createGrid(16);
@@ -35,16 +53,3 @@ button.addEventListener("click", () =>{
         alert("Please enter a number between 1 and 100");
     }
 })
-
-// create a function to generate random color
-
-function randomColor(){
-    let R = Math.floor(Math.random() * 256);
-    let G = Math.floor(Math.random() * 256);
-    let B = Math.floor(Math.random() * 256);
-
-    let randomcolor = "rgb(" + R + "," + G + "," + B + ")"; 
-    return randomcolor;
-}
-
-randomColor()
